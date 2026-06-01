@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="id" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pengumuman Kelulusan - SMP PGRI 01 Bululawang</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-display { font-family: 'Playfair Display', serif; }
+    
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 20px rgba(249,115,22,0.4); } 50% { box-shadow: 0 0 40px rgba(249,115,22,0.8); } }
+    @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+    @keyframes confetti-fall { 0% { transform: translateY(-100%) rotate(0deg); opacity: 1; } 100% { transform: translateY(800px) rotate(720deg); opacity: 0; } }
+    @keyframes shine { 0% { text-shadow: 0 0 10px rgba(249,115,22,0.5); } 50% { text-shadow: 0 0 30px rgba(249,115,22,1), 0 0 60px rgba(249,115,22,0.5); } 100% { text-shadow: 0 0 10px rgba(249,115,22,0.5); } }
+    
+    .animate-fade-in-up { animation: fadeInUp 0.8s ease forwards; }
+    .animate-delay-1 { animation-delay: 0.2s; opacity: 0; }
+    .animate-delay-2 { animation-delay: 0.4s; opacity: 0; }
+    .animate-delay-3 { animation-delay: 0.6s; opacity: 0; }
+    .btn-glow { animation: pulse-glow 2s infinite; }
+    .shine-text { animation: shine 2s infinite; }
+    .shimmer-bg { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); background-size: 200% 100%; animation: shimmer 2s infinite; }
+    
+    .glass { background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.3); }
+    .glass-dark { background: rgba(0,0,0,0.1); backdrop-filter: blur(8px); }
+    
+    .confetti-piece { position: fixed; width: 10px; height: 10px; top: -10px; animation: confetti-fall 3s ease-in forwards; z-index: 9999; pointer-events: none; }
+    
+    .loading-bar { width: 0; transition: width 2s ease; }
+    .loading-bar.active { width: 100%; }
+    
+    #app { height: 100%; overflow-y: auto; }
+    
+    .countdown-box { background: linear-gradient(135deg, #f97316, #ea580c); }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ <script src="/_sdk/telemetry_sdk.js"></script></head>
+ <body class="h-full bg-gray-50">
+  <div id="loading-screen" class="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-orange-500 to-orange-700">
+   <div class="text-center text-white">
+    <div class="w-16 h-16 border-4 border-white border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+    <p class="text-lg font-semibold">Memuat Portal Kelulusan...</p>
+    <div class="w-48 h-1 bg-white/30 rounded mt-4 mx-auto">
+     <div class="loading-bar h-full bg-white rounded" id="load-bar"></div>
+    </div>
+   </div>
+  </div>
+  <div id="app" class="h-full"><!-- Header -->
+   <header id="main-header" class="sticky top-0 z-40 glass shadow-md transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
+     <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+      PGRI
+     </div>
+     <div>
+      <h1 class="text-sm md:text-base font-bold text-gray-800" id="header-school">SMP PGRI 01 BULULAWANG</h1>
+      <p class="text-xs text-gray-500" id="header-ta">Tahun Ajaran 2025/2026</p>
+     </div>
+    </div>
+   </header><!-- Pages -->
+   <main id="page-home"><!-- Hero -->
+    <section class="relative bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700 text-white py-16 md:py-24 px-4 overflow-hidden">
+     <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-10 left-10 w-40 h-40 bg-white rounded-full blur-3xl"></div>
+      <div class="absolute bottom-10 right-10 w-60 h-60 bg-yellow-300 rounded-full blur-3xl"></div>
+     </div>
+     <div class="max-w-4xl mx-auto text-center relative z-10">
+      <div class="animate-fade-in-up">
+       <p class="text-sm md:text-base uppercase tracking-widest mb-4 opacity-80">Portal Resmi</p>
+       <h2 class="font-display text-3xl md:text-5xl font-black leading-tight mb-4">PENGUMUMAN KELULUSAN SISWA</h2>
+       <h3 class="text-xl md:text-2xl font-semibold mb-2">SMP PGRI 01 BULULAWANG</h3>
+       <p class="text-lg opacity-90">TAHUN AJARAN 2025/2026</p>
+      </div>
+      <p class="animate-fade-in-up animate-delay-1 mt-8 text-sm md:text-base opacity-80 max-w-2xl mx-auto leading-relaxed">Selamat datang pada Portal Resmi Pengumuman Kelulusan SMP PGRI 01 BULULAWANG Tahun Ajaran 2025/2026. Silakan melakukan pengecekan hasil kelulusan sesuai jadwal yang telah ditentukan.</p>
+      <div class="animate-fade-in-up animate-delay-2 mt-10"><button onclick="showPage('check')" class="btn-glow bg-white text-orange-600 font-bold px-8 py-4 rounded-full text-lg hover:scale-105 transition-transform shadow-xl"> <i data-lucide="search" class="inline w-5 h-5 mr-2"></i>CEK KELULUSAN </button>
+      </div>
+     </div>
+    </section><!-- Countdown -->
+    <section class="py-12 px-4 bg-white">
+     <div class="max-w-4xl mx-auto text-center">
+      <h3 class="text-2xl font-bold text-gray-800 mb-2">Hitung Mundur Pengumuman</h3>
+      <p class="text-gray-500 mb-8">2 Juni 2026 • Pukul 09.00 WIB</p>
+      <div class="flex justify-center gap-3 md:gap-6 flex-wrap" id="countdown-home">
+       <div class="countdown-box rounded-2xl p-4 md:p-6 text-white min-w-[80px]">
+        <span class="text-3xl md:text-4xl font-black" id="cd-days">--</span>
+        <p class="text-xs mt-1 opacity-80">Hari</p>
+       </div>
+       <div class="countdown-box rounded-2xl p-4 md:p-6 text-white min-w-[80px]">
+        <span class="text-3xl md:text-4xl font-black" id="cd-hours">--</span>
+        <p class="text-xs mt-1 opacity-80">Jam</p>
+       </div>
+       <div class="countdown-box rounded-2xl p-4 md:p-6 text-white min-w-[80px]">
+        <span class="text-3xl md:text-4xl font-black" id="cd-mins">--</span>
+        <p class="text-xs mt-1 opacity-80">Menit</p>
+       </div>
+       <div class="countdown-box rounded-2xl p-4 md:p-6 text-white min-w-[80px]">
+        <span class="text-3xl md:text-4xl font-black" id="cd-secs">--</span>
+        <p class="text-xs mt-1 opacity-80">Detik</p>
+       </div>
+      </div>
+     </div>
+    </section><!-- Sambutan Kepala Sekolah -->
+    <section class="py-12 px-4 bg-gray-50">
+     <div class="max-w-3xl mx-auto">
+      <div class="glass rounded-3xl p-6 md:p-10 shadow-xl">
+       <h3 class="text-xl font-bold text-gray-800 mb-6 text-center">Sambutan Kepala Sekolah</h3>
+       <div class="flex flex-col md:flex-row items-center gap-6 mb-6">
+        <div class="w-24 h-24 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center text-white text-3xl shadow-lg">
+         👩‍💼
+        </div>
+        <div class="text-center md:text-left">
+         <p class="font-bold text-lg text-gray-800">Ismariati, S.Pd., M.M.</p>
+         <p class="text-orange-600 font-medium">Kepala SMP PGRI 01 BULULAWANG</p>
+        </div>
+       </div>
+       <p class="text-gray-600 leading-relaxed text-justify mb-6">Assalamu'alaikum Warahmatullahi Wabarakatuh. Puji syukur kita panjatkan kehadirat Allah SWT atas segala rahmat dan karunia-Nya. Dengan bangga saya menyampaikan hasil kelulusan peserta didik SMP PGRI 01 BULULAWANG Tahun Ajaran 2025/2026. Kelulusan ini merupakan buah dari kerja keras, dedikasi, dan semangat belajar yang luar biasa dari seluruh siswa. Saya mengucapkan selamat kepada seluruh peserta didik yang telah berhasil menyelesaikan pendidikan di jenjang SMP. Jadikan pencapaian ini sebagai motivasi untuk terus meraih prestasi yang lebih tinggi di masa depan.</p>
+       <div class="border-t border-gray-200 pt-4 text-right">
+        <p class="italic text-gray-500 text-sm mb-2">"Pendidikan adalah senjata paling ampuh untuk mengubah dunia."</p>
+        <p class="font-semibold text-gray-700">Ismariati, S.Pd., M.M.</p>
+        <p class="text-xs text-gray-400">Kepala Sekolah</p>
+       </div>
+      </div>
+     </div>
+    </section>
+   </main><!-- Page Check -->
+   <main id="page-check" class="hidden">
+    <section class="min-h-[80%] flex items-center justify-center py-12 px-4 bg-gradient-to-br from-orange-50 to-white">
+     <div class="w-full max-w-md">
+      <div class="glass rounded-3xl p-8 shadow-2xl">
+       <div class="text-center mb-8">
+        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="graduation-cap" class="w-8 h-8 text-orange-500"></i>
+        </div>
+        <h2 class="text-2xl font-bold text-gray-800">Cek Kelulusan</h2>
+        <p class="text-gray-500 text-sm mt-2">Masukkan NISN untuk melihat hasil kelulusan</p>
+       </div>
+       <form id="form-check" onsubmit="handleCheck(event)"><label for="nisn-input" class="block text-sm font-medium text-gray-700 mb-2">Nomor Induk Siswa Nasional (NISN)</label> <input type="text" id="nisn-input" placeholder="Contoh: 0091454483" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:outline-none transition text-center text-lg tracking-wider" autocomplete="off"> <button type="submit" class="w-full mt-6 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold py-3 rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all shadow-lg hover:shadow-xl transform hover:scale-[1.02]"> Lihat Hasil Kelulusan </button>
+       </form><button onclick="showPage('home')" class="w-full mt-4 text-gray-500 hover:text-orange-500 transition text-sm font-medium">← Kembali ke Beranda</button>
+       <div class="mt-6 p-4 bg-orange-50 rounded-xl">
+        <p class="text-xs text-gray-600"><strong>Jadwal Pengumuman:</strong> 2 Juni 2026, Pukul 09.00 WIB</p>
+        <p class="text-xs text-gray-500 mt-1">Pastikan NISN yang dimasukkan sudah benar.</p>
+       </div>
+      </div>
+     </div>
+    </section>
+   </main><!-- Page Result -->
+   <main id="page-result" class="hidden">
+    <section class="py-12 px-4 bg-gradient-to-br from-orange-50 to-white min-h-[80%]">
+     <div class="max-w-lg mx-auto" id="result-content"></div>
+    </section>
+   </main><!-- Page Admin -->
+   <main id="page-admin" class="hidden">
+    <section class="py-8 px-4 bg-gray-50">
+     <div class="max-w-6xl mx-auto">
+      <div class="glass rounded-2xl p-6 shadow-xl">
+       <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+        <div>
+         <h2 class="text-xl font-bold text-gray-800">Panel Admin - Data Siswa</h2>
+         <p class="text-sm text-gray-500">Total: <span id="admin-total">0</span> siswa</p>
+        </div>
+        <div class="flex gap-2"><input type="text" id="admin-search" placeholder="Cari nama/NISN..." oninput="renderAdmin()" class="px-4 py-2 border rounded-lg text-sm focus:outline-none focus:border-orange-500"> <button onclick="showPage('home')" class="px-4 py-2 bg-gray-200 rounded-lg text-sm hover:bg-gray-300 transition">Beranda</button>
+        </div>
+       </div>
+       <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+         <thead>
+          <tr class="bg-orange-500 text-white">
+           <th class="p-3 text-left rounded-tl-lg">No</th>
+           <th class="p-3 text-left">NISN</th>
+           <th class="p-3 text-left">Nama</th>
+           <th class="p-3 text-center">Nilai</th>
+           <th class="p-3 text-center">Predikat</th>
+           <th class="p-3 text-center rounded-tr-lg">Status</th>
+          </tr>
+         </thead>
+         <tbody id="admin-tbody"></tbody>
+        </table>
+       </div>
+       <div class="flex justify-center gap-2 mt-4" id="admin-pagination"></div>
+      </div>
+     </div>
+    </section>
+   </main><!-- Page Not Yet -->
+   <main id="page-notyet" class="hidden">
+    <section class="min-h-[80%] flex items-center justify-center py-12 px-4">
+     <div class="text-center max-w-md">
+      <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6"><i data-lucide="clock" class="w-10 h-10 text-orange-500"></i>
+      </div>
+      <h2 class="text-2xl font-bold text-gray-800 mb-4">Pengumuman Belum Dibuka</h2>
+      <p class="text-gray-500 mb-8">Pengumuman kelulusan akan tersedia pada tanggal <strong>2 Juni 2026</strong> pukul <strong>09.00 WIB</strong>. Silakan kembali sesuai jadwal yang telah ditentukan.</p>
+      <div class="flex justify-center gap-3 mb-8">
+       <div class="countdown-box rounded-xl p-3 text-white min-w-[60px]">
+        <span class="text-xl font-bold" id="cd2-days">--</span>
+        <p class="text-[10px] opacity-80">Hari</p>
+       </div>
+       <div class="countdown-box rounded-xl p-3 text-white min-w-[60px]">
+        <span class="text-xl font-bold" id="cd2-hours">--</span>
+        <p class="text-[10px] opacity-80">Jam</p>
+       </div>
+       <div class="countdown-box rounded-xl p-3 text-white min-w-[60px]">
+        <span class="text-xl font-bold" id="cd2-mins">--</span>
+        <p class="text-[10px] opacity-80">Menit</p>
+       </div>
+       <div class="countdown-box rounded-xl p-3 text-white min-w-[60px]">
+        <span class="text-xl font-bold" id="cd2-secs">--</span>
+        <p class="text-[10px] opacity-80">Detik</p>
+       </div>
+      </div><button onclick="showPage('home')" class="bg-orange-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-orange-600 transition">Kembali ke Beranda</button>
+     </div>
+    </section>
+   </main><!-- Footer -->
+   <footer class="bg-gray-900 text-white py-8 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+     <p class="font-bold text-lg mb-1">SMP PGRI 01 BULULAWANG</p>
+     <p class="text-gray-400 text-sm">Jl. Sidomulyo 1, Wandanpuro, Kec. Bululawang, Kabupaten Malang</p>
+     <p class="text-gray-400 text-sm mt-1">📞 085190888524</p>
+     <p class="text-gray-500 text-xs mt-4">Tahun Ajaran 2025/2026 • © 2026 SMP PGRI 01 BULULAWANG. All Rights Reserved.</p>
+    </div>
+   </footer>
+  </div>
+  <script>
+    // Database
+    const students = [
+      {nisn:"0091454483",nama:"AKBAR DWI HARTONO",nilai:82.19,predikat:"BAIK",status:"LULUS"},
+      {nisn:"3101005085",nama:"AKHTAR RAZA FIRDAUS",nilai:78.32,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0109544779",nama:"BILQIS AULIA RAHMAN SANTOSO",nilai:83.34,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0105819832",nama:"DANIAL ALFI ALFIAN R",nilai:78.81,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0107160985",nama:"DENDY KURNIAWAN",nilai:79.8,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0092873751",nama:"GASTIAN ATALA PERMANA",nilai:83.06,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0103455787",nama:"LAILATUL FAIS INAYATI",nilai:82.21,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0116800031",nama:"M. FERDY PRATAMA",nilai:77.38,predikat:"BAIK",status:"LULUS"},
+      {nisn:"3116053815",nama:"MARCELL MAULANA NUR RIDWAN",nilai:78.1,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0117221976",nama:"MAULIDATUS SARIFAH",nilai:82.37,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0114332073",nama:"MAULIDIA AZHARA",nilai:78.86,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0116469027",nama:"MUHAMMAD AGUNG WIJAYA PUTRA",nilai:79.97,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0103979460",nama:"MUHAMMAD ICHSAN IMAMUL HAQQ",nilai:81.36,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0118245959",nama:"MUHAMMAD IQBAL KHOIRUDIN",nilai:80.4,predikat:"BAIK",status:"LULUS"},
+      {nisn:"3104297036",nama:"MUHAMMAD RASYID AR RIDHO",nilai:79.66,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0107088366",nama:"MUHAMMAD RIZKI DWI SAPUTRA",nilai:78.7,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0093203339",nama:"NAJWA ATIKA SARI",nilai:81.09,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0118081220",nama:"NISA VIRGIANI",nilai:85.7,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0101058197",nama:"REVAN WAHYU NARSO",nilai:78.37,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0105246866",nama:"RICKY SETIAWAN",nilai:83.03,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0103687405",nama:"SEPTIA DWI ARDINA",nilai:79.73,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0099138229",nama:"SULASTRI NINGSIH",nilai:86.94,predikat:"SANGAT BAIK",status:"LULUS"},
+      {nisn:"0107356476",nama:"VIKA PUTRI NABILLA",nilai:85.77,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0101400734",nama:"YANFA ARIJ SEPTIANSYAH",nilai:77.76,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0101987924",nama:"YULIANTO PUTRA PRATAMA",nilai:83.33,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0119260691",nama:"YUNITA FADILLAH",nilai:82.88,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0114283598",nama:"ZULFA ULIN NUCHA",nilai:80.04,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0101835464",nama:"ADITIA",nilai:77.94,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0104892202",nama:"AHMAD MU'AZAM PRASETYO",nilai:78.75,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0101013400",nama:"AHMAD RAIKHAN NAUFAL ABDILAH",nilai:83.14,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0106807402",nama:"AIRLANGGA GALIH PAMUNGKAS",nilai:77.44,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0109189149",nama:"ALVINO DENDI TRIWICAHYO",nilai:82.5,predikat:"BAIK",status:"LULUS"},
+      {nisn:"3109276694",nama:"ANISA AMELIA RAHMADHANI",nilai:80.15,predikat:"BAIK",status:"LULUS"},
+      {nisn:"3115004073",nama:"ASMAUL HUSNA",nilai:80.05,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0108144556",nama:"AUFAL BIMA ABISHEKA",nilai:78,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0108221707",nama:"AZAM ANNAS NAZRIL MAULANA",nilai:78.23,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0111006431",nama:"DERIL NAUFAREL FISABILAL AL QORY",nilai:78.13,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0119207092",nama:"DIVA ALIA NUSAFA",nilai:78.55,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0102580354",nama:"DWI SAFA NATALIA",nilai:85.15,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0096486097",nama:"FATAN MAULANA FIRMANSYAH",nilai:77.16,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0118074041",nama:"GHALANG SATRIA PRATAMA",nilai:77.9,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0101298108",nama:"HAFIDZAH ARROSIKHOTUS ZARZAROH",nilai:79.46,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0099412852",nama:"HASYIM MAULANA",nilai:76.84,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0103199031",nama:"ICA FATUL FAIZA",nilai:77.89,predikat:"BAIK",status:"LULUS"},
+      {nisn:"3113479975",nama:"MOCH IMAM WAFI ALFAROBI",nilai:77.68,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0109917740",nama:"MOCH ZAINUR ROZIKIN",nilai:80.1,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0108181490",nama:"MOCHAMAD FAUZAN",nilai:77.67,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0109083773",nama:"MOH DOVAN PRATAMA",nilai:78.76,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0111898434",nama:"MUHAMMAD ALFARIZI",nilai:77.95,predikat:"BAIK",status:"LULUS"},
+      {nisn:"3106128830",nama:"MUHAMMAD HAMID",nilai:82.47,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0095980209",nama:"MUHAMMAD RADIT FAISAL FAIDILAH",nilai:77.75,predikat:"BAIK",status:"LULUS"},
+      {nisn:"0117718162",nama:"REVICA MEDWA CIPTA",nilai:80.98,predikat:"BAIK",status:"LULUS"}
+    ];
+
+    // Announcement time: June 2, 2026 09:00 WIB (UTC+7)
+    const announcementDate = new Date('2026-06-02T02:00:00Z');
+    let adminPage = 1;
+    const perPage = 15;
+
+    function isAnnouncementOpen() {
+      return new Date() >= announcementDate;
+    }
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = announcementDate - now;
+      if (diff <= 0) {
+        ['cd-days','cd-hours','cd-mins','cd-secs','cd2-days','cd2-hours','cd2-mins','cd2-secs'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.textContent = '00';
+        });
+        return;
+      }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      const sets = [['cd-days','cd-hours','cd-mins','cd-secs'],['cd2-days','cd2-hours','cd2-mins','cd2-secs']];
+      sets.forEach(ids => {
+        const els = ids.map(id => document.getElementById(id));
+        if (els[0]) { els[0].textContent = d; els[1].textContent = h; els[2].textContent = m; els[3].textContent = s; }
+      });
+    }
+
+    function showPage(page) {
+      ['home','check','result','admin','notyet'].forEach(p => {
+        document.getElementById('page-' + p).classList.toggle('hidden', p !== page);
+      });
+      document.getElementById('app').scrollTop = 0;
+    }
+
+    function handleCheck(e) {
+      e.preventDefault();
+      const input = document.getElementById('nisn-input').value.trim();
+      if (!input) return;
+
+      // Admin mode
+      if (input.toUpperCase() === 'PRISALA') {
+        showPage('admin');
+        renderAdmin();
+        return;
+      }
+      if (input.toUpperCase().startsWith('PRISALA ')) {
+        const nisn = input.substring(8).trim();
+        const student = students.find(s => s.nisn === nisn);
+        if (student) {
+          showResult(student);
+        } else {
+          showError();
+        }
+        return;
+      }
+
+      // Normal check
+      if (!isAnnouncementOpen()) {
+        showPage('notyet');
+        return;
+      }
+
+      const student = students.find(s => s.nisn === input);
+      if (student) {
+        showResult(student);
+      } else {
+        showError();
+      }
+    }
+
+    function showResult(student) {
+      showPage('result');
+      const container = document.getElementById('result-content');
+      container.innerHTML = `
+        <div class="text-center mb-6">
+          <div class="w-12 h-12 border-4 border-orange-500 border-t-transparent rounded-full animate-spin mx-auto"></div>
+          <p class="text-gray-500 mt-4">Memuat hasil kelulusan...</p>
+        </div>
+      `;
+      setTimeout(() => {
+        container.innerHTML = `
+          <div class="animate-fade-in-up">
+            <div class="glass rounded-2xl p-6 shadow-xl mb-6">
+              <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Identitas Siswa</h3>
+              <div class="space-y-2 text-sm">
+                <div class="flex justify-between"><span class="text-gray-500">Nama Lengkap</span><span class="font-semibold text-gray-800">${student.nama}</span></div>
+                <div class="flex justify-between"><span class="text-gray-500">NISN</span><span class="font-semibold text-gray-800">${student.nisn}</span></div>
+                <div class="flex justify-between"><span class="text-gray-500">Asal Sekolah</span><span class="font-semibold text-gray-800">SMP PGRI 01 BULULAWANG</span></div>
+                <div class="flex justify-between"><span class="text-gray-500">Tahun Ajaran</span><span class="font-semibold text-gray-800">2025/2026</span></div>
+              </div>
+            </div>
+            <div class="bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl p-8 text-center text-white shadow-2xl mb-6">
+              <p class="text-sm uppercase tracking-widest opacity-80 mb-2">Hasil Kelulusan</p>
+              <h2 class="text-2xl font-bold mb-1">SELAMAT! 🎉</h2>
+              <p class="text-lg">Anda Dinyatakan</p>
+              <h1 class="font-display text-5xl font-black mt-2 shine-text">LULUS</h1>
+            </div>
+            <div class="glass rounded-2xl p-6 shadow-xl mb-6">
+              <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Nilai Akhir Kelulusan</h3>
+              <div class="flex justify-between items-center mb-2"><span class="text-gray-600">Nilai Akhir</span><span class="text-2xl font-bold text-orange-600">${student.nilai.toFixed(2).replace('.',',')}</span></div>
+              <div class="flex justify-between items-center"><span class="text-gray-600">Predikat</span><span class="font-bold text-orange-600">${student.predikat}</span></div>
+            </div>
+            <div class="glass rounded-2xl p-6 shadow-xl mb-6">
+              <p class="text-gray-600 text-sm text-justify">Peserta didik telah memenuhi seluruh persyaratan akademik dan nonakademik sesuai ketentuan yang berlaku sehingga dinyatakan <strong>LULUS</strong> dari SMP PGRI 01 BULULAWANG Tahun Ajaran 2025/2026.</p>
+            </div>
+            <div class="bg-orange-50 border border-orange-200 rounded-2xl p-6 mb-6">
+              <p class="text-gray-600 text-sm italic text-justify">"Selamat atas keberhasilan yang telah diraih. Jadikan kelulusan ini sebagai langkah awal menuju cita-cita yang lebih tinggi. Teruslah belajar, berkarya, dan menjadi pribadi yang membanggakan keluarga, sekolah, serta bangsa."</p>
+              <p class="text-right text-xs text-gray-500 mt-3">— Ismariati, S.Pd., M.M.</p>
+            </div>
+            <button onclick="showPage('home')" class="w-full bg-orange-500 text-white py-3 rounded-xl font-semibold hover:bg-orange-600 transition">Kembali ke Beranda</button>
+          </div>
+        `;
+        launchConfetti();
+      }, 2000);
+    }
+
+    function showError() {
+      showPage('result');
+      document.getElementById('result-content').innerHTML = `
+        <div class="animate-fade-in-up text-center">
+          <div class="bg-red-50 border border-red-200 rounded-2xl p-8">
+            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i data-lucide="alert-triangle" class="w-8 h-8 text-red-500"></i>
+            </div>
+            <h2 class="text-xl font-bold text-red-700 mb-2">NISN Tidak Ditemukan</h2>
+            <p class="text-gray-600 text-sm">Harap periksa kembali nomor NISN yang Anda masukkan.</p>
+            <button onclick="showPage('check')" class="mt-6 bg-red-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-red-600 transition">Coba Lagi</button>
+          </div>
+        </div>
+      `;
+      lucide.createIcons();
+    }
+
+    function renderAdmin() {
+      const search = (document.getElementById('admin-search')?.value || '').toLowerCase();
+      const filtered = students.filter(s => s.nama.toLowerCase().includes(search) || s.nisn.includes(search));
+      document.getElementById('admin-total').textContent = filtered.length;
+      const totalPages = Math.ceil(filtered.length / perPage);
+      if (adminPage > totalPages) adminPage = totalPages || 1;
+      const start = (adminPage - 1) * perPage;
+      const pageData = filtered.slice(start, start + perPage);
+      
+      document.getElementById('admin-tbody').innerHTML = pageData.map((s, i) => `
+        <tr class="border-b hover:bg-orange-50 transition">
+          <td class="p-3">${start + i + 1}</td>
+          <td class="p-3 font-mono text-xs">${s.nisn}</td>
+          <td class="p-3 font-medium">${s.nama}</td>
+          <td class="p-3 text-center">${s.nilai.toFixed(2)}</td>
+          <td class="p-3 text-center"><span class="px-2 py-1 rounded-full text-xs font-medium ${s.predikat === 'SANGAT BAIK' ? 'bg-green-100 text-green-700' : 'bg-blue-100 text-blue-700'}">${s.predikat}</span></td>
+          <td class="p-3 text-center"><span class="px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">${s.status}</span></td>
+        </tr>
+      `).join('');
+
+      document.getElementById('admin-pagination').innerHTML = Array.from({length: totalPages}, (_, i) => 
+        `<button onclick="adminPage=${i+1};renderAdmin()" class="w-8 h-8 rounded-lg text-sm ${adminPage === i+1 ? 'bg-orange-500 text-white' : 'bg-gray-200 hover:bg-gray-300'} transition">${i+1}</button>`
+      ).join('');
+    }
+
+    function launchConfetti() {
+      const colors = ['#f97316','#facc15','#22c55e','#3b82f6','#ec4899','#8b5cf6'];
+      for (let i = 0; i < 60; i++) {
+        const piece = document.createElement('div');
+        piece.className = 'confetti-piece';
+        piece.style.left = Math.random() * 100 + '%';
+        piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.animationDelay = Math.random() * 2 + 's';
+        piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+        document.body.appendChild(piece);
+        setTimeout(() => piece.remove(), 5000);
+      }
+    }
+
+    // Countdown
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Loading screen
+    setTimeout(() => { document.getElementById('load-bar').classList.add('active'); }, 100);
+    setTimeout(() => {
+      document.getElementById('loading-screen').style.opacity = '0';
+      document.getElementById('loading-screen').style.transition = 'opacity 0.5s';
+      setTimeout(() => document.getElementById('loading-screen').remove(), 500);
+    }, 2000);
+
+    // Element SDK
+    const defaultConfig = {
+      school_name: "SMP PGRI 01 BULULAWANG",
+      tahun_ajaran: "2025/2026",
+      background_color: "#f97316",
+      surface_color: "#ffffff",
+      text_color: "#1f2937",
+      primary_action_color: "#f97316",
+      secondary_action_color: "#6b7280",
+      font_family: "Plus Jakarta Sans",
+      font_size: 16
+    };
+
+    function applyConfig(config) {
+      const c = {...defaultConfig, ...config};
+      document.getElementById('header-school').textContent = c.school_name;
+      document.getElementById('header-ta').textContent = 'Tahun Ajaran ' + c.tahun_ajaran;
+    }
+
+    window.elementSdk.init({
+      defaultConfig,
+      onConfigChange: async (config) => { applyConfig(config); },
+      mapToCapabilities: (config) => ({
+        recolorables: [
+          { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({background_color: v}); }},
+          { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({surface_color: v}); }},
+          { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({text_color: v}); }},
+          { get: () => config.primary_action_color || defaultConfig.primary_action_color, set: (v) => { config.primary_action_color = v; window.elementSdk.setConfig({primary_action_color: v}); }},
+          { get: () => config.secondary_action_color || defaultConfig.secondary_action_color, set: (v) => { config.secondary_action_color = v; window.elementSdk.setConfig({secondary_action_color: v}); }}
+        ],
+        borderables: [],
+        fontEditable: { get: () => config.font_family || defaultConfig.font_family, set: (v) => { config.font_family = v; window.elementSdk.setConfig({font_family: v}); }},
+        fontSizeable: { get: () => config.font_size || defaultConfig.font_size, set: (v) => { config.font_size = v; window.elementSdk.setConfig({font_size: v}); }}
+      }),
+      mapToEditPanelValues: (config) => new Map([
+        ["school_name", config.school_name || defaultConfig.school_name],
+        ["tahun_ajaran", config.tahun_ajaran || defaultConfig.tahun_ajaran]
+      ])
+    });
+
+    lucide.createIcons();
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a04e52ec1dd59d05',t:'MTc4MDMxODAxNQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
